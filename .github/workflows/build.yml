@@ -10,10 +10,18 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
+      # Build Capacitor
       - uses: actions/checkout@v1
       - run: npm install
       - run: npm run build
       - run: npx cap copy
-      - run: npm run electron:publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Build Android
+      - name: Build Android
+        run: |
+          cd android
+          gradlew assembleDebug
+      # Build Electron
+      # - name: Build & Publish Electron
+      #   run: npm run electron:publish
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
