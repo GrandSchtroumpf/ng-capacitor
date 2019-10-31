@@ -14,4 +14,4 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npx cap copy
-      - run: npm run electron:package
+      - run: npm run electron:publish

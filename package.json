@@ -1,6 +1,6 @@
 {
   "name": "ng-capacitor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,7 +30,6 @@
     "@capacitor/core": "^1.2.1",
     "@capacitor/electron": "^1.2.1",
     "@datorama/akita": "^4.10.8",
-    "@electron-forge/publisher-github": "^6.0.0-beta.45",
     "akita-ng-fire": "^1.0.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
@@ -44,19 +43,20 @@
     "@angular/language-service": "~8.0.0",
     "@datorama/akita-ng-router-store": "^3.1.3",
     "@datorama/akita-ngdevtools": "^3.0.2",
-    "@types/node": "~8.9.4",
-    "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
     "@electron-forge/cli": "6.0.0-beta.45",
+    "@electron-forge/maker-appx": "^6.0.0-beta.45",
     "@electron-forge/maker-deb": "6.0.0-beta.45",
     "@electron-forge/maker-rpm": "6.0.0-beta.45",
     "@electron-forge/maker-squirrel": "6.0.0-beta.45",
     "@electron-forge/maker-zip": "6.0.0-beta.45",
-    "@electron-forge/maker-appx": "^6.0.0-beta.45",
+    "@electron-forge/publisher-github": "^6.0.0-beta.45",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "^5.0.0",
     "electron": "^7.0.0",
     "electron-is-dev": "^1.1.0",
     "electron-windows-store": "^2.1.0",
-    "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -74,5 +74,9 @@
   "main": "electron/index.js",
   "config": {
     "forge": "./electron/forge.config.js"
+  },
+  "description": "An angular application with Capacitor",
+  "author": {
+    "name": "GrandSchtroumpf"
   }
 }
