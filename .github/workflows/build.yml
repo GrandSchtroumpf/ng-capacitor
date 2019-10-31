@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - build
+    paths:
+      - 'src/app/*'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm install
+      - run: npm run build
+      - run: npx cap copy
+      - run: npm run electron:package
