@@ -1,0 +1,8 @@
+{
+  "appId": "com.capacitor.ng",
+  "appName": "ng-capacitor",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/ng-capacitor",
+  "windowsAndroidStudioPath": "D:/logiciels/Android/bin/studio64.exe"
+}

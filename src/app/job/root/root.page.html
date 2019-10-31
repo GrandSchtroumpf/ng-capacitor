@@ -1,0 +1,63 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <!-- <mat-form-field>
+      <button matPrefix mat-icon-button (click)="open($event)" *ngIf="!showFilter">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button matPrefix mat-icon-button (click)="close($event)" *ngIf="showFilter">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" (focus)="showFilter = true" />
+      <button matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field> -->
+
+    <header>
+      <button mat-icon-button (click)="open($event)" *ngIf="!showFilter">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button mat-icon-button (click)="close($event)" *ngIf="showFilter">
+        <mat-icon>close</mat-icon>
+      </button>
+      <input matNativeControl placeholder="Search" (focus)="showFilter = true"/>
+      <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+    </header>
+
+
+    <vertical-nav-container [opened]="showFilter">
+      <vertical-nav>
+        <h1>Filters</h1>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+        <p>I have no ideas</p>
+      </vertical-nav>
+
+      <vertical-nav-content>
+        <mat-nav-list>
+          <a routerLink="1" mat-list-item>Name 1</a>
+          <a routerLink="2" mat-list-item>Name 2</a>
+          <a routerLink="3" mat-list-item>Name 3</a>
+          <a routerLink="4" mat-list-item>Name 4</a>
+        </mat-nav-list>
+      </vertical-nav-content>
+    </vertical-nav-container>
+  </mat-sidenav-content>
+
+  <mat-sidenav mode="side" position="end" opened>
+    <router-outlet></router-outlet>
+  </mat-sidenav>
+</mat-sidenav-container>

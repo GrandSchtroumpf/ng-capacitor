@@ -1,0 +1,38 @@
+{
+  "name": "capacitor-app",
+  "version": "1.0.0",
+  "description": "An Amazing Capacitor App",
+  "main": "index.js",
+  "scripts": {
+    "electron:start": "electron ./",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "dependencies": {
+    "@capacitor/electron": "^1.2.1",
+    "electron": "^7.0.0",
+    "electron-is-dev": "^1.1.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.45",
+    "@electron-forge/maker-deb": "6.0.0-beta.45",
+    "@electron-forge/maker-rpm": "6.0.0-beta.45",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.45",
+    "@electron-forge/maker-zip": "6.0.0-beta.45",
+    "@electron-forge/maker-appx": "^6.0.0-beta.45",
+    "electron-windows-store": "^2.1.0"
+  },
+  "keywords": [
+    "capacitor",
+    "electron"
+  ],
+  "author": {
+    "name": "Grandschtroumpf",
+    "email": "francois.guezengar@hotmail.fr"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": "./forge.config.js"
+  }
+}
