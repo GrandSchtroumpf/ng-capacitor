@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - build
-    paths:
-      - 'src/app/*'
 
 jobs:
   build:
