@@ -17,5 +17,18 @@ module.exports = {
     {
       name: '@electron-forge/maker-zip'
     }
+  ],
+  publisher: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'GrandSchtroumpf',
+          name: 'ng-capacitor'
+        },
+        prerelease: false,
+        draft: true
+      }
+    }
   ]
 }
