@@ -1,12 +1,12 @@
 module.exports = {
   makers: [
-    // // APPX
-    // {
-    //   name: '@electron-forge/maker-appx',
-    //   config: {
-    //     publisher: 'CN=developmentca',
-    //   }
-    // },
+    // APPX
+    {
+      name: '@electron-forge/maker-appx',
+      config: {
+        publisher: 'CN=developmentca',
+      }
+    },
     // // Squirrel
     // {
     //   name: '@electron-forge/maker-squirrel',
