@@ -15,3 +15,5 @@ jobs:
       - run: npm run build
       - run: npx cap copy
       - run: npm run electron:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
