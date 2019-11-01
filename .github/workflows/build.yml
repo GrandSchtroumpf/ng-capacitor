@@ -16,10 +16,13 @@ jobs:
       - run: npm run build
       - run: npx cap copy
       # Build Android
-      - name: Build Android
-        run: |
-          cd android
-          gradlew assembleDebug
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - run: cd android
+      - uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: build
       # Build Electron
       # - name: Build & Publish Electron
       #   run: npm run electron:publish
