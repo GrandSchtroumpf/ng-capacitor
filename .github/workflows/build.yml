@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       # Build Capacitor
       - uses: actions/checkout@v1
@@ -20,9 +20,11 @@ jobs:
         with:
           java-version: 11
       - run: cd android
-      - uses: eskatos/gradle-command-action@v1
-        with:
-          arguments: build
+      - name: Build Android
+        run: ./gradlew build
+      # - uses: eskatos/gradle-command-action@v1
+      #   with:
+      #     arguments: build
       # Build Electron
       # - name: Build & Publish Electron
       #   run: npm run electron:publish
