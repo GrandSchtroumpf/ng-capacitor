@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { JobRootPage } from './root.page';
 
@@ -24,6 +25,8 @@ const material = [
   MatIconModule,
 ];
 
+const transloco = { provide: TRANSLOCO_SCOPE, useValue: 'jobs' };
+
 const routes: Routes = [
   {
     path: '',
@@ -43,8 +46,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     UiModule,
+    TranslocoModule,
     ...material
   ],
-  declarations: [JobRootPage]
+  declarations: [JobRootPage],
+  providers: [transloco]
 })
 export class JobRootPageModule {}

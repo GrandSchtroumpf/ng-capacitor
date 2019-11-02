@@ -1,19 +1,5 @@
-<mat-sidenav-container>
+<mat-sidenav-container *transloco="let t; scope: 'jobs'">
   <mat-sidenav-content>
-    <!-- <mat-form-field>
-      <button matPrefix mat-icon-button (click)="open($event)" *ngIf="!showFilter">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button matPrefix mat-icon-button (click)="close($event)" *ngIf="showFilter">
-        <mat-icon>close</mat-icon>
-      </button>
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Search" (focus)="showFilter = true" />
-      <button matSuffix mat-icon-button>
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field> -->
-
     <header>
       <button mat-icon-button (click)="open($event)" *ngIf="!showFilter">
         <mat-icon>menu</mat-icon>
@@ -21,27 +7,15 @@
       <button mat-icon-button (click)="close($event)" *ngIf="showFilter">
         <mat-icon>close</mat-icon>
       </button>
-      <input matNativeControl placeholder="Search" (focus)="showFilter = true"/>
+      <input matNativeControl [placeholder]="t('jobs.search')" (focus)="showFilter = true"/>
       <button mat-icon-button>
           <mat-icon>search</mat-icon>
         </button>
     </header>
 
-
     <vertical-nav-container [opened]="showFilter">
       <vertical-nav>
-        <h1>Filters</h1>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
+        <h1>{{ t('jobs.filters') }}</h1>
         <p>I have no ideas</p>
         <p>I have no ideas</p>
       </vertical-nav>
