@@ -9,7 +9,7 @@ jobs:
   # BUILD APP
   build_angular:
     name: Build Angular
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Cache node modules
@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@preview
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm install
