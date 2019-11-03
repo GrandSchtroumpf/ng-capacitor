@@ -20,7 +20,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build Android
-        run: {{ github.workspace }}/android/gradlew build
+        run: {{ secrets.GITHUB_WORKSPACE }}/android/gradlew build
       # - uses: eskatos/gradle-command-action@v1
       #   with:
       #     build-root-directory: ./android
