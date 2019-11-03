@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: cd ${{ github.workspace }}/android/
+      - run: cd ${{ github.workspace }}/android
       - run: ./gradlew build
       # - uses: eskatos/gradle-command-action@v1
       #   with:
