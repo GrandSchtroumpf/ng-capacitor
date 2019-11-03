@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@preview
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
       - run: npm install
         if: steps.npm_cache.outputs.cache-hit != 'true'
       - run: npm run build
