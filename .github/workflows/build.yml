@@ -16,9 +16,22 @@ jobs:
       - run: npm run build
       - run: npx cap copy
       # Build Android
-      - name: Build Android
+      - name: Build Android APK
         working-directory: ${{ github.workspace }}/android
         run: ./gradlew build
+      - name: Build Android Bundle
+        working-directory: ${{ github.workspace }}/android
+        run: ./gradlew bundle
+      - name: Upload to Github Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')  # If commit use tag...
+        with:
+          draft: true
+          files: |
+            android/app/build/outputs/apk/release/app-release-unsigned.apk
+            android/app/build/outputs/bundle/release/app.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Build Electron
       # - name: Build & Publish Electron
       #   run: npm run electron:publish
