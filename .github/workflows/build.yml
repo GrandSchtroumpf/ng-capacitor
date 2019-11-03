@@ -40,6 +40,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
+      - run: npm install @capacitor/cli
       - run: npx cap copy
       - name: Build Android APK
         working-directory: ${{ github.workspace }}/android
@@ -69,6 +70,7 @@ jobs:
       #   uses: actions/download-artifact@master
       #   with:
       #     name: dist
+      # - run: npm install @capacitor/cli
       # - run: npx cap copy
   #     - name: Build & Publish Electron
   #       run: npm run electron:publish
