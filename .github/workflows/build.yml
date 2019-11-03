@@ -6,16 +6,39 @@ on:
       - build
 
 jobs:
-  build:
-    name: Build
+  # BUILD APP
+  build_angular:
+    name: Build Angular
     runs-on: windows-latest
     steps:
-      # Build Capacitor
       - uses: actions/checkout@v1
+      - name: Cache node modules
+        id: npm_cache
+        uses: actions/cache@preview
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm install
+        if: steps.npm_cache.outputs.cache-hit != 'true'
       - run: npm run build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+  # BUILD ANDROID
+  build_android:
+    name: Build Android
+    needs: build_angular
+    runs-on: windows-latest
+    stpes:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
       - run: npx cap copy
-      # Build Android
       - name: Build Android APK
         working-directory: ${{ github.workspace }}/android
         run: ./gradlew build
@@ -24,7 +47,7 @@ jobs:
         run: ./gradlew bundle
       - name: Upload to Github Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')  # If commit use tag...
+        if: startsWith(github.ref, 'refs/tags/')  # Release only if a tag is povided
         with:
           draft: true
           files: |
@@ -32,15 +55,27 @@ jobs:
             android/app/build/outputs/bundle/release/app.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Build Electron
-      # - name: Build & Publish Electron
-      #   run: npm run electron:publish
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-      # Use Gradle with eskatos/gradle-command-action
-      # - uses: eskatos/gradle-command-action@v1
+  # BUILD ELECTRON
+  # build_electron:
+  #   name: Build Electron
+  #   needs: build_angular
+  #   runs-on: windows-latest
+  #   stpes:
+      # - name: Checkout Repo
+      #   uses: actions/checkout@master
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@master
       #   with:
-      #     build-root-directory: ./android
-      #     arguments: build
+      #     name: dist
+      # - run: npx cap copy
+  #     - name: Build & Publish Electron
+  #       run: npm run electron:publish
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+  #     Use Gradle with eskatos/gradle-command-action
+  #     - uses: eskatos/gradle-command-action@v1
+  #       with:
+  #         build-root-directory: ./android
+  #         arguments: build
