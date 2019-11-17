@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Analytics, ANALYTICS } from '../../utils/analytics';
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  form = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl()
+  });
+
+  constructor(
+    // @Inject(ANALYTICS) private analytics: Analytics
+  ) { }
 
   ngOnInit() {
   }
 
+  signin() {
+    // this.analytics.logEvent('signin');
+  }
 }

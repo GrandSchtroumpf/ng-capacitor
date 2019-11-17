@@ -7,6 +7,16 @@ mat-sidenav-container {
   height: 100%;
 
   mat-sidenav {
-    width: 250px;
+    width: 300px;
   }
+
+  mat-sidenav-content {
+    display: flex;
+    flex-direction: column;
+
+    main {
+      flex: 1;
+    }
+  }
+
 }
