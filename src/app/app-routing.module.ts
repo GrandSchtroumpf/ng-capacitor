@@ -4,8 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'job',
+    redirectTo: 'job/map',
     pathMatch: 'full'
+  },
+  {
+    path: 'signin',
+    loadChildren: () =>
+      import('./auth/signin/signin.module').then(m => m.SigninModule)
   },
   {
     path: 'job',

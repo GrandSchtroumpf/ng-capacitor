@@ -1,4 +1,4 @@
-<mat-sidenav-container *transloco="let t; scope: 'jobs'">
+<mat-sidenav-container *transloco="let t; scope: 'jobs'" [hasBackdrop]="false">
   <mat-sidenav-content>
     <header>
       <button mat-icon-button (click)="open($event)" *ngIf="!showFilter">
@@ -31,7 +31,8 @@
     </vertical-nav-container>
   </mat-sidenav-content>
 
-  <mat-sidenav mode="side" position="end" opened>
+  <mat-sidenav [ngStyle]="sidenavWidth$ | async" [mode]="mode$ | async" position="end" [opened]="isOpened$ | async">
+
     <router-outlet></router-outlet>
   </mat-sidenav>
 </mat-sidenav-container>

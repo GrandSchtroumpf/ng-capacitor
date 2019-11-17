@@ -1,9 +1,24 @@
 <mat-sidenav-container class="mat-typography">
-  <mat-sidenav mode="side" position="start" opened>
-    <h1>Login</h1>
+  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="isDesktop$ | async">
+    <mat-nav-list *ngIf="isDesktop$ | async">
+      <a mat-list-item routerLink="job/map" routerLinkActive="active">Jobs</a>
+      <a mat-list-item routerLink="signin" routerLinkActive="active">Account</a>
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <ng-container *ngIf="isDesktop$ | async else mobileContent">
+      <router-outlet></router-outlet>
+    </ng-container>
+    <ng-template #mobileContent>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+
+      <nav mat-tab-nav-bar mat-stretch-tabs class="mat-tab-group-inverted-header">
+        <a mat-tab-link routerLink="job" routerLinkActive #rlaJob="routerLinkActive" [active]="rlaJob.isActive">Jobs</a>
+        <a mat-tab-link routerLink="signin" routerLinkActive #rlaAccount="routerLinkActive" [active]="rlaAccount.isActive">Account</a>
+      </nav>
+    </ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>

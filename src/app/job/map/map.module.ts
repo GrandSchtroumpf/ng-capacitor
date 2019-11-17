@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './map.component';
+import { RouterModule } from '@angular/router';
 
 // Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -9,22 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 const material = [ MatToolbarModule, MatButtonModule, MatIconModule ];
 
-
-import { JobDisplayPage } from './display.page';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: JobDisplayPage
-  }
-];
-
 @NgModule({
+  declarations: [MapComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    GoogleMapsModule,
+    RouterModule.forChild([{ path: '', component: MapComponent }]),
     ...material
-  ],
-  declarations: [JobDisplayPage]
+  ]
 })
-export class JobDisplayPageModule {}
+export class MapModule {}

@@ -1,8 +1,13 @@
 :host {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
+
+section {
+  flex: 1;
+}
+
 
 mat-toolbar {
   display: flex;

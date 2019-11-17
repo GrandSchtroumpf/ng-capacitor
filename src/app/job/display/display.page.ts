@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UiQuery } from '../../ui/+state/ui.query';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'job-display',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobDisplayPage implements OnInit {
 
-  constructor() { }
+  isMobile$: Observable<boolean>;
+
+  constructor(private ui: UiQuery) { }
 
   ngOnInit() {
+    this.isMobile$ = this.ui.selectSize('mobile');
   }
 
 }

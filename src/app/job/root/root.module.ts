@@ -10,7 +10,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UiModule } from 'src/app/ui/ui.module';
@@ -20,7 +19,6 @@ const material = [
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
-  MatToolbarModule,
   MatButtonModule,
   MatIconModule,
 ];
@@ -32,8 +30,8 @@ const routes: Routes = [
     path: '',
     component: JobRootPage,
     children: [{
-      path: '',
-      loadChildren: () => import('../empty/empty.module').then(m => m.JobEmptyPageModule)
+      path: 'map',
+      loadChildren: () => import('../map/map.module').then(m => m.MapModule)
     }, {
       path: ':jobId',
       loadChildren: () => import('../display/display.module').then(m => m.JobDisplayPageModule),

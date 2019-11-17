@@ -1,1 +1,19 @@
-<p>signin works!</p>
+<form [formGroup]="form" fxLayout="column" (submit)="signin()">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="email" type="email" formControlName="email"/>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="password" type="password" formControlName="password"/>
+  </mat-form-field>
+  <button type="submit" mat-flat-button>Signin</button>
+</form>
+<div class="divider" fxLayout="row">
+  <hr/>
+  <span>Or</span>
+  <hr/>
+</div>
+<article fxLayout="row">
+
+</article>

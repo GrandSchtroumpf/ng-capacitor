@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { delay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { UiQuery, DrawerMode } from './ui/+state/ui.query';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,13 @@ import { delay } from 'rxjs/operators';
 export class AppComponent implements AfterViewInit {
 
   @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
+  isDesktop$: Observable<boolean>;
+  mode$: Observable<DrawerMode>;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private ui: UiQuery) {}
 
   ngAfterViewInit() {
-    this.breakpointObserver.observe([
-      Breakpoints.Medium,
-      Breakpoints.Large,
-    ]).pipe(
-      delay(0), // Needed for Expression has changed after it was checked
-    ).subscribe(({matches}) => matches ? this.sidenav.open() : this.sidenav.close());
+    this.mode$ = this.ui.selectMode('mobile', 'over');
+    this.isDesktop$ = this.ui.selectSize('desktop');
   }
 }

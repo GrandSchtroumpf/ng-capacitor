@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-capacitor": {
+      "hosting": {
+        "ng-capacitor": [
+          "ng-capacitor"
+        ]
+      }
+    }
+  }
+}

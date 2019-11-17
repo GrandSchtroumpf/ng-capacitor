@@ -10,7 +10,8 @@ import {
   Renderer2,
   AfterViewInit,
   OnDestroy,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,7 +19,8 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'vertical-nav',
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VerticalNavComponent {
   constructor(private el: ElementRef) {}
@@ -32,16 +34,17 @@ export class VerticalNavComponent {
   selector: 'vertical-nav-container',
   templateUrl: './vertical-nav.component.html',
   styleUrls: ['./vertical-nav.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VerticalNavContainerComponent implements OnInit {
   private isOpen = new BehaviorSubject(false);
   public offset$: Observable<number>;
 
-  @HostBinding('class.opened')
   @Input()
+  @HostBinding('class.opened')
   get opened(): boolean {
-    console.log('Get open');
+    // This is trigger wayyy more than it should.
     return this.isOpen.getValue();
   }
   set opened(isOpen: boolean) {
@@ -62,7 +65,8 @@ export class VerticalNavContainerComponent implements OnInit {
 
 @Component({
   selector: 'vertical-nav-content',
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VerticalNavContentComponent implements AfterViewInit, OnDestroy {
 
