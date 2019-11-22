@@ -3,19 +3,20 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
-import { JobRootPage } from './root.page';
+import { JobListComponent } from './list.component';
 
 // Material
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UiModule } from 'src/app/ui/ui.module';
+import { JobActiveGuard } from '../active.guard';
+
+import { ListNavModule } from '../../ui/list-nav/list-nav.module';
 
 const material = [
-  MatSidenavModule,
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
@@ -28,15 +29,17 @@ const transloco = { provide: TRANSLOCO_SCOPE, useValue: 'jobs' };
 const routes: Routes = [
   {
     path: '',
-    component: JobRootPage,
+    component: JobListComponent,
     children: [{
       path: 'map',
-      loadChildren: () => import('../map/map.module').then(m => m.MapModule)
+      loadChildren: () => import('./map/map.module').then(m => m.MapModule)
     }, {
       path: ':jobId',
-      loadChildren: () => import('../display/display.module').then(m => m.JobDisplayPageModule),
+      canActivate: [JobActiveGuard],
+      canDeactivate: [JobActiveGuard],
+      loadChildren: () => import('./view/view.module').then(m => m.JobViewModule),
     }]
-  }
+  },
 ];
 
 @NgModule({
@@ -45,9 +48,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     UiModule,
     TranslocoModule,
+    ListNavModule,
     ...material
   ],
-  declarations: [JobRootPage],
+  declarations: [JobListComponent],
   providers: [transloco]
 })
-export class JobRootPageModule {}
+export class JobListModule {}

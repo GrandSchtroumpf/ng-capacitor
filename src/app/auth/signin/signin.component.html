@@ -1,4 +1,4 @@
-<form [formGroup]="form" fxLayout="column" (submit)="signin()">
+<form [formGroup]="form" (submit)="signin()">
   <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput placeholder="email" type="email" formControlName="email"/>
@@ -9,11 +9,19 @@
   </mat-form-field>
   <button type="submit" mat-flat-button>Signin</button>
 </form>
-<div class="divider" fxLayout="row">
+<div class="divider">
   <hr/>
   <span>Or</span>
   <hr/>
 </div>
-<article fxLayout="row">
-
-</article>
+<section>
+  <h3>Connect with</h3>
+  <article class="providers">
+    <ng-container *ngFor="let provider of providers">
+      <button mat-flat-button (click)="signinWith(provider)" class="signin-with">
+        <mat-icon [svgIcon]="provider"></mat-icon>
+        <span>{{provider}}</span>
+      </button>
+    </ng-container>
+  </article>
+</section>

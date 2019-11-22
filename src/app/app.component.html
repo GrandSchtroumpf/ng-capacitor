@@ -1,7 +1,9 @@
 <mat-sidenav-container class="mat-typography">
   <mat-sidenav [mode]="mode$ | async" position="start" [opened]="isDesktop$ | async">
+    <auth-widget></auth-widget>
     <mat-nav-list *ngIf="isDesktop$ | async">
-      <a mat-list-item routerLink="job/map" routerLinkActive="active">Jobs</a>
+      <a mat-list-item routerLink="job/list/map" routerLinkActive="active">Jobs</a>
+      <a mat-list-item routerLink="job/dashboard" routerLinkActive="active">Job Dashboard</a>
       <a mat-list-item routerLink="signin" routerLinkActive="active">Account</a>
     </mat-nav-list>
   </mat-sidenav>

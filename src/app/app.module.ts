@@ -11,11 +11,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 
+// Component
+import { AuthWidgetModule } from './auth/widget/widget.module';
+
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from './utils/analytics';
 import { AngularFireRemoteConfigModule } from './utils/remove-config';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 // Akita Transloco
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
@@ -46,11 +51,14 @@ const translocoConfig = {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AuthWidgetModule,
     ...material,
 
     // Angular Firebase
     AngularFireModule.initializeApp(environment.firebase, 'ng-capacitor'),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     AngularFireAnalyticsModule,
     AngularFireRemoteConfigModule,
 

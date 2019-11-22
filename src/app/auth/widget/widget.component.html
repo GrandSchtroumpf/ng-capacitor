@@ -1,0 +1,16 @@
+<ng-container *ngIf="profile$ | async as profile; else toLogin">
+  <section class="connected">
+    <img [src]="profile.photoURL" alt="Profile image" />
+    <a mat-flat-button color="primary">Wishlist</a>
+  </section>
+</ng-container>
+
+<ng-template #toLogin>
+  <mat-toolbar class="no-connected">
+    <a routerLink="/signin" matRipple>
+      <mat-icon>account_circle</mat-icon>
+      <h3>Login</h3>
+    </a>
+  </mat-toolbar>
+</ng-template>
+<mat-divider></mat-divider>

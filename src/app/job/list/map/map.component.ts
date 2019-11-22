@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapMarker, MapInfoWindow } from '@angular/google-maps';
 import { Observable } from 'rxjs';
-import { UiQuery } from '../../ui/+state/ui.query';
+import { UiQuery } from '../../../ui/+state/ui.query';
 
 interface Marker {
   position: google.maps.LatLngLiteral;

@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'job',
     loadChildren: () =>
-      import('./job/root/root.module').then(m => m.JobRootPageModule)
+      import('./job/job.module').then(m => m.JobModule)
   }
 ];
 

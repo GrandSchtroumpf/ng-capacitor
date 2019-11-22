@@ -1,22 +1,20 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RootPage } from './root.page';
+import { ListNavComponent } from './list-nav.component';
 
-describe('RootPage', () => {
-  let component: RootPage;
-  let fixture: ComponentFixture<RootPage>;
+describe('ListNavComponent', () => {
+  let component: ListNavComponent;
+  let fixture: ComponentFixture<ListNavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RootPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [ ListNavComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RootPage);
+    fixture = TestBed.createComponent(ListNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

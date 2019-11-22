@@ -10,12 +10,12 @@ import { MatIconModule } from '@angular/material/icon';
 const material = [ MatToolbarModule, MatButtonModule, MatIconModule ];
 
 
-import { JobDisplayPage } from './display.page';
+import { JobViewComponent } from './view.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: JobDisplayPage
+    component: JobViewComponent
   }
 ];
 
@@ -25,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ...material
   ],
-  declarations: [JobDisplayPage]
+  declarations: [JobViewComponent]
 })
-export class JobDisplayPageModule {}
+export class JobViewModule {}

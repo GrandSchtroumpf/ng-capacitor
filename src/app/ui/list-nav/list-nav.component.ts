@@ -1,16 +1,15 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { UiQuery, DrawerMode } from '../../ui/+state/ui.query';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable, combineLatest } from 'rxjs';
-import { RouterQuery } from '@datorama/akita-ng-router-store';
+import { DrawerMode, UiQuery } from '../+state/ui.query';
+import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'job-root',
-  templateUrl: './root.page.html',
-  styleUrls: ['./root.page.scss'],
+  selector: 'list-nav',
+  templateUrl: './list-nav.component.html',
+  styleUrls: ['./list-nav.component.scss']
 })
-export class JobRootPage implements AfterViewInit {
+export class ListNavComponent implements AfterViewInit {
   @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
   showFilter = false;
   isOpened$: Observable<boolean>;
@@ -29,13 +28,5 @@ export class JobRootPage implements AfterViewInit {
     );
   }
 
-  open(event: MouseEvent) {
-    event.stopPropagation();
-  }
-
-  close(event: MouseEvent) {
-    event.stopPropagation();
-    this.showFilter = false;
-  }
 
 }

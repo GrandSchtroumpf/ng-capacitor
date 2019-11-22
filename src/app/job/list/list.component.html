@@ -1,5 +1,5 @@
-<mat-sidenav-container *transloco="let t; scope: 'jobs'" [hasBackdrop]="false">
-  <mat-sidenav-content>
+<list-nav *transloco="let t; scope: 'jobs'">
+  <ng-container ngProjectAs="list-content">
     <header>
       <button mat-icon-button (click)="open($event)" *ngIf="!showFilter">
         <mat-icon>menu</mat-icon>
@@ -29,10 +29,9 @@
         </mat-nav-list>
       </vertical-nav-content>
     </vertical-nav-container>
-  </mat-sidenav-content>
+  </ng-container>
 
-  <mat-sidenav [ngStyle]="sidenavWidth$ | async" [mode]="mode$ | async" position="end" [opened]="isOpened$ | async">
-
+  <ng-container ngProjectAs="view-content">
     <router-outlet></router-outlet>
-  </mat-sidenav>
-</mat-sidenav-container>
+  </ng-container>
+</list-nav>

@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  height: 50%;
+  padding: 30px 0;
 }
 
 form {
@@ -12,7 +14,33 @@ form {
 }
 
 .divider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  width: 80%;
   hr {
     flex: 1;
+    border: none;
+    border-top: solid 1px;
+    margin: 20px;
+    opacity: 0.5;
+  }
+}
+
+section {
+  width: 80%;
+}
+article.providers {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+button.signin-with {
+  padding: 10px 20px;
+  span {
+    text-transform: capitalize;
+    padding-left: 10px;
   }
 }

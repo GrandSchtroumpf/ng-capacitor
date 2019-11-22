@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@datorama/akita:component": {
+          "styleext": "scss"
         }
       },
       "root": "",
@@ -128,10 +131,5 @@
   "defaultProject": "ng-capacitor",
   "cli": {
     "defaultCollection": "@datorama/akita"
-  },
-  "schematics": {
-    "@datorama/akita:component": {
-      "styleext": "scss"
-    }
   }
 }

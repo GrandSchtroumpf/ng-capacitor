@@ -1,0 +1,19 @@
+<list-nav>
+  <ng-container ngProjectAs="list-content">
+    <mat-toolbar>
+      <h3>Dashboard</h3>
+      <a mat-icon-button routerLink="form">
+        <mat-icon>add</mat-icon>
+      </a>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="job.id" *ngFor="let job of jobs$ | async">
+        {{ job.title }}
+      </a>
+    </mat-nav-list>
+  </ng-container>
+
+  <ng-container ngProjectAs="view-content">
+    <router-outlet></router-outlet>
+  </ng-container>
+</list-nav>
