@@ -2,9 +2,19 @@
   <mat-sidenav [mode]="mode$ | async" position="start" [opened]="isDesktop$ | async">
     <auth-widget></auth-widget>
     <mat-nav-list *ngIf="isDesktop$ | async">
-      <a mat-list-item routerLink="job/list/map" routerLinkActive="active">Jobs</a>
-      <a mat-list-item routerLink="job/dashboard" routerLinkActive="active">Job Dashboard</a>
-      <a mat-list-item routerLink="signin" routerLinkActive="active">Account</a>
+      <h3 matSubheader>Jobs</h3>
+      <a mat-list-item routerLink="job/list/map" routerLinkActive="active">
+        <mat-icon>list</mat-icon>
+        <span>Discover</span>
+      </a>
+      <a mat-list-item routerLink="job/list/map" routerLinkActive="active">
+        <mat-icon>favorite</mat-icon>
+        <span>Wishlist</span>
+      </a>
+      <a mat-list-item routerLink="job/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span>My Dashboard</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 

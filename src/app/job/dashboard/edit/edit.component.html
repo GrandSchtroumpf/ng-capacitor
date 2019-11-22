@@ -1,1 +1,30 @@
-<p>edit works!</p>
+<!-- Header -->
+<mat-toolbar>
+  <a mat-flat-button routerLink="/job/dashboard">
+    <mat-icon>delete</mat-icon>
+    <span>Delete</span>
+  </a>
+  <button mat-flat-button>
+    <mat-icon>save_alt</mat-icon>
+    <span>Save</span>
+  </button>
+  <button mat-flat-button color="primary" (click)="create()">
+    <mat-icon>send</mat-icon>
+    <span>Create</span>
+  </button>
+</mat-toolbar>
+
+<!-- Tabs -->
+<mat-tab-group>
+  <mat-tab label="about">
+    <form [formGroup]="form">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Title of the offer" />
+      </mat-form-field>
+    </form>
+  </mat-tab>
+  <mat-tab label="map">
+
+  </mat-tab>
+</mat-tab-group>

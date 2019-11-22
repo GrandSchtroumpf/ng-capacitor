@@ -12,12 +12,14 @@ import { MatListModule } from '@angular/material/list';
 const material = [ MatToolbarModule, MatButtonModule, MatIconModule, MatListModule ];
 
 import { JobDashboardComponent } from './dashboard.component';
+import { JobEditGuard } from '../edit.guard';
 
 const routes: Routes = [{
   path: '',
   component: JobDashboardComponent,
   children: [{
-    path: 'form',
+    path: ':jobId',
+    canActivate: [JobEditGuard],
     loadChildren: () => import('./edit/edit.module').then(m => m.JobEditModule)
   }]
 }];

@@ -24,7 +24,4 @@ export class JobDashboardComponent implements OnInit {
     ).subscribe();
   }
 
-  add() {
-
-  }
 }

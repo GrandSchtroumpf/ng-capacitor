@@ -11,4 +11,11 @@ export class AuthQuery extends Query<AuthState> {
     super(store);
   }
 
+  get uid() {
+    return this.getValue().uid;
+  }
+
+  get profile() {
+    return this.getValue().profile;
+  }
 }

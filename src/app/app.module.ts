@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 // Component
 import { AuthWidgetModule } from './auth/widget/widget.module';
@@ -34,7 +35,7 @@ import {
   TranslocoConfig
 } from '@ngneat/transloco';
 
-const material = [MatSidenavModule, MatButtonModule, MatTabsModule, MatListModule];
+const material = [MatSidenavModule, MatButtonModule, MatTabsModule, MatListModule, MatIconModule];
 
 const translocoConfig = {
   provide: TRANSLOCO_CONFIG,

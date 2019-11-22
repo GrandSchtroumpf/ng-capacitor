@@ -20,4 +20,8 @@ export class WidgetComponent implements OnInit {
   ngOnInit() {
     this.service.sync().subscribe();
   }
+
+  signout() {
+    this.service.signOut();
+  }
 }
