@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MapMarker, MapInfoWindow } from '@angular/google-maps';
 import { Observable } from 'rxjs';
 import { UiQuery } from '../../../ui/+state/ui.query';
@@ -13,7 +13,8 @@ interface Marker {
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnInit {
   @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;

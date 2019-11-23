@@ -34,6 +34,7 @@ import {
   TRANSLOCO_CONFIG,
   TranslocoConfig
 } from '@ngneat/transloco';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 const material = [MatSidenavModule, MatButtonModule, MatTabsModule, MatListModule, MatIconModule];
 
@@ -47,7 +48,7 @@ const translocoConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

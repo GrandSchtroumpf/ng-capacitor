@@ -1,34 +1,16 @@
 <list-nav *transloco="let t; scope: 'jobs'">
   <ng-container ngProjectAs="list-content">
-    <header>
-      <button mat-icon-button (click)="open($event)" *ngIf="!showFilter">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-icon-button (click)="close($event)" *ngIf="showFilter">
-        <mat-icon>close</mat-icon>
-      </button>
-      <input matNativeControl [placeholder]="t('jobs.search')" (focus)="showFilter = true"/>
-      <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
-    </header>
-
-    <vertical-nav-container [opened]="showFilter">
-      <vertical-nav>
-        <h1>{{ t('jobs.filters') }}</h1>
-        <p>I have no ideas</p>
-        <p>I have no ideas</p>
-      </vertical-nav>
-
-      <vertical-nav-content>
-        <mat-nav-list>
-          <a routerLink="1" mat-list-item>Name 1</a>
-          <a routerLink="2" mat-list-item>Name 2</a>
-          <a routerLink="3" mat-list-item>Name 3</a>
-          <a routerLink="4" mat-list-item>Name 4</a>
-        </mat-nav-list>
-      </vertical-nav-content>
-    </vertical-nav-container>
+    <mat-form-field appearance="fill">
+      <mat-icon matPrefix>menu</mat-icon>
+      <mat-label>{{ t('jobs.search') }}</mat-label>
+      <input matInput name="search" [formControl]="searchForm"/>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-nav-list>
+      <a *ngFor="let job of jobs$ | async" [routerLink]="job.id" mat-list-item>
+        {{ job.title }}
+      </a>
+    </mat-nav-list>
   </ng-container>
 
   <ng-container ngProjectAs="view-content">

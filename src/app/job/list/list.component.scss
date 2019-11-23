@@ -13,8 +13,17 @@ mat-sidenav {
 
 mat-form-field {
   width: 100%;
-}
 
+  mat-icon {
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  input {
+    font-size: 1.3rem;
+  }
+}
 
 header {
   display: flex;
