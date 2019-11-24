@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { JobActiveGuard } from '../active.guard';
 
-import { ListNavModule } from '../../ui/list-nav/list-nav.module';
+import { SplittedPanelModule } from '../../ui/splitted-panel/splitted-panel.module';
 import { SearchBarModule } from '../../ui/search-bar/search-bar.module';
 
 const material = [
@@ -52,7 +52,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     TranslocoModule,
-    ListNavModule,
+    SplittedPanelModule,
     SearchBarModule,
     ...material
   ],

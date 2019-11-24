@@ -10,9 +10,9 @@
 
 
 // Components
-@import './app/ui/list-nav/list-nav.theme.scss';
+@import './app/ui/splitted-panel/splitted-panel.theme.scss';
 @mixin components-theme($theme) {
-  @include list-nav-theme($theme);
+  @include splitted-panel-theme($theme);
 }
 
 

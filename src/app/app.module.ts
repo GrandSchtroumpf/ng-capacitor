@@ -18,8 +18,6 @@ import { AuthWidgetModule } from './auth/widget/widget.module';
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAnalyticsModule } from './utils/analytics';
-import { AngularFireRemoteConfigModule } from './utils/remove-config';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
@@ -60,8 +58,6 @@ const translocoConfig = {
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
-    AngularFireAnalyticsModule,
-    AngularFireRemoteConfigModule,
 
     // Akita & Transloco
     environment.production ? [] : AkitaNgDevtools.forRoot(),

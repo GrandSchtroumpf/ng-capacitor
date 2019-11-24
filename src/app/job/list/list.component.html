@@ -1,4 +1,4 @@
-<list-nav *transloco="let t; scope: 'jobs'">
+<splitted-panel *transloco="let t; scope: 'jobs'">
   <ng-container ngProjectAs="list-content">
     <search-bar [formControl]="searchForm" ngDefaultControl ></search-bar>
     <mat-nav-list>
@@ -11,4 +11,4 @@
   <ng-container ngProjectAs="view-content">
     <router-outlet></router-outlet>
   </ng-container>
-</list-nav>
+</splitted-panel>

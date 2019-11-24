@@ -1,17 +1,16 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Component, AfterViewInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { CdkDragMove } from '@angular/cdk/drag-drop';
 import { DrawerMode, UiQuery } from '../+state/ui.query';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { CdkDragMove, CdkDragExit, moveItemInArray, CdkDragRelease } from '@angular/cdk/drag-drop';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'list-nav',
-  templateUrl: './list-nav.component.html',
-  styleUrls: ['./list-nav.component.scss'],
+  selector: 'splitted-panel',
+  templateUrl: './splitted-panel.component.html',
+  styleUrls: ['./splitted-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListNavComponent implements AfterViewInit {
+export class SplittedPanelComponent implements AfterViewInit {
   @Input() position = 800;
   size = this.position;
   next = 0;
