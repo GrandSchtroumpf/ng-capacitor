@@ -11,8 +11,10 @@
 
 // Components
 @import './app/ui/splitted-panel/splitted-panel.theme.scss';
+@import './app/ui/search-bar/search-bar.theme.scss';
 @mixin components-theme($theme) {
   @include splitted-panel-theme($theme);
+  @include search-bar-theme($theme);
 }
 
 

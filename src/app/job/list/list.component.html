@@ -1,10 +1,13 @@
 <splitted-panel *transloco="let t; scope: 'jobs'">
   <ng-container ngProjectAs="list-content">
     <search-bar [formControl]="searchForm" ngDefaultControl ></search-bar>
-    <mat-nav-list>
-      <a *ngFor="let job of jobs$ | async" [routerLink]="job.id" mat-list-item>
-        {{ job.title }}
-      </a>
+    <mat-nav-list *ngIf="isFavorites$ | async as isFavorite">
+      <mat-list-item *ngFor="let job of jobs$ | async">
+        <a matLine [routerLink]="job.id">{{ job.title }}</a>
+        <button *ngIf="connected$ | async" mat-icon-button (click)="toggleFavorite(job.id)">
+           <mat-icon [color]="isFavorite[job.id] ? 'primary' : 'none'">favorite</mat-icon>
+        </button>
+      </mat-list-item>
     </mat-nav-list>
   </ng-container>
 

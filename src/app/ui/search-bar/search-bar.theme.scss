@@ -1,0 +1,23 @@
+@import '~@angular/material/theming';
+
+@mixin search-bar-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  search-bar {
+    mat-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        flex: 1;
+        border: none;
+        background-color: transparent;
+        color: map-get($foreground, text);
+        padding: 15px;
+        font-size: 1rem;
+      }
+    }
+
+  }
+}

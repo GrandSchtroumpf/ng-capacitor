@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ListNavModule } from '../../ui/list-nav/list-nav.module';
+import { SplittedPanelModule } from '../../ui/splitted-panel/splitted-panel.module';
 
 // Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +28,7 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ListNavModule,
+    SplittedPanelModule,
     ...material
   ],
   declarations: [JobDashboardComponent]
