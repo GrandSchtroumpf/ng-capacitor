@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Self, ChangeDetectionStrategy } from '@angular/core';
+import { UiStore } from '../+state/ui.store';
+import { NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'search-bar',
+  selector: '[formControl]search-bar, [formControlName]search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Self() public ngControl: NgControl,
+    private uiStore: UiStore
+  ) { }
+
+  get control() {
+    return this.ngControl['form'];
+  }
 
   ngOnInit() {
+  }
+
+  toggleNav() {
+    this.uiStore.toggleNav();
   }
 
 }

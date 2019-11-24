@@ -1,1 +1,9 @@
-<p>search-bar works!</p>
+<mat-toolbar>
+  <button mat-icon-button (click)="toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <input [formControl]="control" placeholder="Seach a job offer" />
+  <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-toolbar>

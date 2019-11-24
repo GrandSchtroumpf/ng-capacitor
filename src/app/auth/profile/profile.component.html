@@ -1,1 +1,38 @@
-<p>profile works!</p>
+<list-nav>
+  <ng-container ngProjectAs="list-content">
+    <mat-toolbar>
+      <h3>Profile</h3>
+      <a mat-icon-button routerLink="form">
+        <mat-icon>add</mat-icon>
+      </a>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="introduction">
+        Introduction
+      </a>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel mat-list-item class="experiences-panel">
+        <mat-expansion-panel-header>
+          Experiences
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <mat-nav-list class="experiences">
+            <a mat-list-item routerLink="experience">Ex 1</a>
+            <a mat-list-item routerLink="experience">Ex 1</a>
+            <a mat-list-item routerLink="experience">Ex 1</a>
+            <a mat-list-item routerLink="experience">Ex 1</a>
+            <a mat-list-item routerLink="experience">Ex 1</a>
+          </mat-nav-list>
+        </mat-panel-description>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="introduction">
+        Hobbies
+      </a>
+    </mat-nav-list>
+  </ng-container>
+
+  <ng-container ngProjectAs="view-content">
+    <router-outlet></router-outlet>
+  </ng-container>
+</list-nav>

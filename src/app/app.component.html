@@ -1,5 +1,5 @@
 <mat-sidenav-container class="mat-typography">
-  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="isDesktop$ | async">
+  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="navOpened$ | async">
     <auth-widget></auth-widget>
     <mat-nav-list *ngIf="isDesktop$ | async">
       <h3 matSubheader>Jobs</h3>

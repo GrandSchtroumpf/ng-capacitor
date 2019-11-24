@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin list-nav-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  list-nav {
+    section.view {
+      background-color: mat-color($background, card);
+      border-left: 1px solid mat-color($foreground, divider);
+    }
+  }
+}

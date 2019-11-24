@@ -16,6 +16,7 @@ export class EditComponent implements OnInit, OnDestroy {
 
   form = new FormGroup({
     title: new FormControl(),
+    description: new FormControl(),
   });
 
   constructor(

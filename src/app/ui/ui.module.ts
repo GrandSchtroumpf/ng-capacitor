@@ -5,16 +5,12 @@ import {
   VerticalNavContentComponent,
   VerticalNavContainerComponent
 } from './vertical-nav/vertical-nav.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ListNavComponent } from './list-nav/list-nav.component';
 
 @NgModule({
   declarations: [
     VerticalNavComponent,
     VerticalNavContentComponent,
     VerticalNavContainerComponent,
-    SearchBarComponent,
-    ListNavComponent
   ],
   exports: [
     VerticalNavComponent,

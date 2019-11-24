@@ -1,11 +1,6 @@
 <list-nav *transloco="let t; scope: 'jobs'">
   <ng-container ngProjectAs="list-content">
-    <mat-form-field appearance="fill">
-      <mat-icon matPrefix>menu</mat-icon>
-      <mat-label>{{ t('jobs.search') }}</mat-label>
-      <input matInput name="search" [formControl]="searchForm"/>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    <search-bar [formControl]="searchForm" ngDefaultControl ></search-bar>
     <mat-nav-list>
       <a *ngFor="let job of jobs$ | async" [routerLink]="job.id" mat-list-item>
         {{ job.title }}

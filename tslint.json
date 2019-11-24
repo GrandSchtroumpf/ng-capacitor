@@ -18,7 +18,7 @@
     "component-selector": [
       true,
       "element",
-      ["app", "job", "auth", "vertical"],
+      ["app", "job", "auth", ""],
       "kebab-case"
     ],
     "import-blacklist": [

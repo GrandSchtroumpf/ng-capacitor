@@ -12,10 +12,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { UiModule } from 'src/app/ui/ui.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { JobActiveGuard } from '../active.guard';
 
 import { ListNavModule } from '../../ui/list-nav/list-nav.module';
+import { SearchBarModule } from '../../ui/search-bar/search-bar.module';
 
 const material = [
   MatListModule,
@@ -23,6 +25,7 @@ const material = [
   MatInputModule,
   MatButtonModule,
   MatIconModule,
+  MatToolbarModule,
 ];
 
 const transloco = { provide: TRANSLOCO_SCOPE, useValue: 'jobs' };
@@ -48,9 +51,9 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    UiModule,
     TranslocoModule,
     ListNavModule,
+    SearchBarModule,
     ...material
   ],
   declarations: [JobListComponent],

@@ -11,6 +11,7 @@ import { UiQuery, DrawerMode } from './ui/+state/ui.query';
 export class AppComponent implements AfterViewInit {
 
   @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
+  navOpened$: Observable<boolean>;
   isDesktop$: Observable<boolean>;
   mode$: Observable<DrawerMode>;
 
@@ -18,6 +19,7 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.mode$ = this.ui.selectMode('mobile', 'over');
-    this.isDesktop$ = this.ui.selectSize('desktop');
+    this.isDesktop$ = this.ui.isDesktop$;
+    this.navOpened$ = this.ui.select('navOpened');
   }
 }

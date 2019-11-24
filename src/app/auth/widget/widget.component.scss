@@ -6,11 +6,11 @@ section.connected {
   position: relative;
   margin: 25px 0;
 
-  img {
+  a.img-link, img {
     height: 100px;
     border-radius: 50%;
   }
-  a {
+  a.click-to-action {
     margin: 25px;
     width: 50%;
   }

@@ -1,4 +1,4 @@
-<mat-sidenav-container [hasBackdrop]="false">
+<!-- <mat-sidenav-container [hasBackdrop]="false">
   <mat-sidenav-content>
     <ng-content select="list-content"></ng-content>
   </mat-sidenav-content>
@@ -6,4 +6,14 @@
   <mat-sidenav [ngStyle]="sidenavWidth$ | async" [mode]="mode$ | async" position="end" [opened]="isOpened$ | async">
     <ng-content select="view-content"></ng-content>
   </mat-sidenav>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+
+
+
+<section class="list">
+  <ng-content select="list-content"></ng-content>
+</section>
+
+<section class="view">
+  <ng-content select="view-content"></ng-content>
+</section>

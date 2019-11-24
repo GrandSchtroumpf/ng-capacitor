@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 export interface UiState {
-  opened: boolean;
+  navOpened: boolean;
+  viewOpened: boolean;
 }
 
 
@@ -11,7 +12,11 @@ export interface UiState {
 export class UiStore extends Store<UiState> {
 
   constructor() {
-    super({ opened: true });
+    super({ navOpened: true, viewOpened: true });
+  }
+
+  toggleNav() {
+    this.update(state => ({ navOpened: !state.navOpened }));
   }
 
 }

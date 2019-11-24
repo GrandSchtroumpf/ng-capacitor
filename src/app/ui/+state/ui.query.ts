@@ -5,7 +5,7 @@ import { RouterQuery } from '@datorama/akita-ng-router-store';
 import { Query } from '@datorama/akita';
 import { UiStore, UiState } from './ui.store';
 import { combineLatest } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { map, delay, shareReplay } from 'rxjs/operators';
 
 const screenSize = ['mobile', 'tablet', 'desktop'] as const;
 export type Size = typeof screenSize[number];
@@ -37,7 +37,8 @@ export class UiQuery extends Query<UiState> {
   selectSize(size: Size) {
     return this.breakpointObserver.observe(breakpoints[size]).pipe(
       delay(0), // Needed for Expression has changed after it was checked
-      map(({ matches }) => matches)
+      map(({ matches }) => matches),
+      shareReplay(1)
     );
   }
 

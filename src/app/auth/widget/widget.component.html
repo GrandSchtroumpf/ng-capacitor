@@ -1,7 +1,9 @@
 <ng-container *ngIf="profile$ | async as profile; else toLogin">
   <section class="connected">
-    <img [src]="profile.photoURL" alt="Profile image" />
-    <a mat-flat-button color="primary">Wishlist</a>
+    <a matRipple class="img-link" routerLink="/profile">
+      <img [src]="profile.photoURL" alt="Profile image" />
+    </a>
+    <a class="click-to-action" mat-flat-button color="primary">Wishlist</a>
     <button mat-button (click)="signout()">Signout</button>
   </section>
 </ng-container>

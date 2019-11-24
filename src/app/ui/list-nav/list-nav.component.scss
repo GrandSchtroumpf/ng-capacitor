@@ -1,6 +1,7 @@
 :host {
-  display: block;
   height: 100%;
+  display: block;
+  position: relative;
 }
 
 mat-sidenav-container {
@@ -9,4 +10,24 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: 60%;
+}
+
+
+section.list {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 60%;
+  transition: all 0.3s ease-in-out;
+}
+
+
+section.view {
+  position: absolute;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
 }

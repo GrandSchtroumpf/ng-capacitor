@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DrawerMode, UiQuery } from '../+state/ui.query';
 import { Observable } from 'rxjs';
@@ -7,7 +7,8 @@ import { map, tap } from 'rxjs/operators';
 @Component({
   selector: 'list-nav',
   templateUrl: './list-nav.component.html',
-  styleUrls: ['./list-nav.component.scss']
+  styleUrls: ['./list-nav.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListNavComponent implements AfterViewInit {
   @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
