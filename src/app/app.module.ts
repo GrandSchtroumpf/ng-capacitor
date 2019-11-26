@@ -23,9 +23,8 @@ import {
   TranslocoConfig
 } from '@ngneat/transloco';
 
-import { MatMenuModule } from '@angular/material/menu';
 
-const material = [MatMenuModule];
+const material = [];
 
 const translocoConfig = {
   provide: TRANSLOCO_CONFIG,
@@ -40,7 +39,7 @@ const translocoConfig = {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     ...material,
 
