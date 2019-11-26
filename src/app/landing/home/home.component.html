@@ -1,0 +1,18 @@
+<section id="search">
+  <form [formGroup]="searchForm">
+    <mat-form-field>
+      <mat-label>What ?</mat-label>
+      <input name="what" formControlName="what" matInput/>
+      <mat-hint>Job title or Company</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Where ?</mat-label>
+      <input name="where" formControlName="where" matInput/>
+      <mat-hint>Country, State or city</mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary">
+      <span>Find a Job</span>
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </form>
+</section>

@@ -15,6 +15,28 @@
 @mixin components-theme($theme) {
   @include splitted-panel-theme($theme);
   @include search-bar-theme($theme);
+
+
+  // SCROLL BAR
+  /* width */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: map-get(map-get($theme, background), card);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: map-get(map-get($theme, foreground), dividers);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: map-get(map-get($theme, foreground), disabled-button);
+  }
 }
 
 
@@ -34,3 +56,5 @@ a {
   color: inherit;
   cursor: pointer;
 }
+
+

@@ -1,18 +1,23 @@
 <ng-container *ngIf="profile$ | async as profile; else toLogin">
+  <mat-toolbar>
+    <a routerLink="/" class="mat-headline">Job Hunting</a>
+    <button (click)="signout()" mat-icon-button>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
   <section class="connected">
     <a matRipple class="img-link" routerLink="/profile">
       <img [src]="profile.photoURL" alt="Profile image" />
     </a>
     <a class="click-to-action" mat-flat-button color="primary">Wishlist</a>
-    <button mat-button (click)="signout()">Signout</button>
   </section>
 </ng-container>
 
 <ng-template #toLogin>
   <mat-toolbar class="no-connected">
-    <a routerLink="/signin" matRipple>
+    <a routerLink="/" class="mat-heading">Job Hunting</a>
+    <a routerLink="/signin" mat-icon-button>
       <mat-icon>account_circle</mat-icon>
-      <h3>Login</h3>
     </a>
   </mat-toolbar>
 </ng-template>

@@ -15,6 +15,14 @@ export class UiStore extends Store<UiState> {
     super({ navOpened: true, viewOpened: true });
   }
 
+  closeNav() {
+    this.update({ navOpened: false });
+  }
+
+  openNav() {
+    this.update({ navOpened: true });
+  }
+
   toggleNav() {
     this.update(state => ({ navOpened: !state.navOpened }));
   }

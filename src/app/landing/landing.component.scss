@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+mat-toolbar {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    margin: 0 15px;
+  }
+  a:not(.mat-headline) {
+    font-size: 1rem;
+  }
+}
+
+main {
+  padding-top: 64px;
+  min-height: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  mat-icon {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+  }
+}

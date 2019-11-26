@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { redirectToSignin } from './auth/auth.guard';
+import { LandingGuard } from './landing/landing.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'job/map',
-    pathMatch: 'full'
+    canActivate: [LandingGuard],
+    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
   },
   {
     path: 'profile',
