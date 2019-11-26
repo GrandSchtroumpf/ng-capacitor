@@ -1,8 +1,5 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { Observable } from 'rxjs';
-import { UiQuery, DrawerMode } from './ui/+state/ui.query';
-import { SettingsQuery } from './settings/+state';
+import { Component, AfterViewInit, HostBinding } from '@angular/core';
+import { SettingsQuery, Theme } from './settings/+state';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +12,13 @@ export class AppComponent implements AfterViewInit {
   // navOpened$: Observable<boolean>;
   // isDesktop$: Observable<boolean>;
   // mode$: Observable<DrawerMode>;
-  theme$ = this.settings.select('theme');
+  @HostBinding('class')
+  theme: Theme;
 
   constructor(private settings: SettingsQuery) {}
 
   ngAfterViewInit() {
+    this.settings.select('theme').subscribe(theme => this.theme = theme);
     // this.mode$ = this.ui.selectMode('mobile', 'over');
     // this.isDesktop$ = this.ui.isDesktop$;
     // this.navOpened$ = this.ui.select('navOpened');

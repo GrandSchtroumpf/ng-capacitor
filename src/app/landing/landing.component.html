@@ -1,12 +1,17 @@
 <mat-toolbar>
-  <div>
+  <div class="routings">
     <a class="mat-headline" routerLink="/">Job Hunting</a>
     <a mat-button routerLink="/job/list/map">Find a Job</a>
     <a mat-button routerLink="/job/dashboard">Create a Job Offer</a>
   </div>
-  <div>
-    <a mat-button routerLink="/signin">Signin</a>
-    <a mat-stroked-button color="primary" routerLink="/signin">Sign up</a>
+  <div class="auth-settings">
+    <button mat-icon-button aria-label="settings">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <a mat-stroked-button color="primary" routerLink="/signin">
+      <mat-icon>account_circle</mat-icon>
+      <span class="mat-title">Signin</span>
+    </a>
   </div>
 </mat-toolbar>
 
@@ -35,3 +40,4 @@
     </li>
   </ul>
 </footer>
+
