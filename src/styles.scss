@@ -5,9 +5,6 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Dark Theme
-@import './theme/dark.scss';
-
 
 // Components
 @import './app/ui/splitted-panel/splitted-panel.theme.scss';
@@ -39,12 +36,27 @@
   }
 }
 
+.default {
+  // Dark Theme
+  @import './theme/dark.scss';
+  @include angular-material-theme($ng-capacitor-dark-theme);
+  @include components-theme($ng-capacitor-dark-theme);
+}
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($ng-capacitor-dark-theme);
-@include components-theme($ng-capacitor-dark-theme);
+.dark {
+  // Dark Theme
+  @import './theme/dark.scss';
+  @include angular-material-theme($ng-capacitor-dark-theme);
+  @include components-theme($ng-capacitor-dark-theme);
+}
+
+.light {
+  // Light Theme
+  @import './theme/light.scss';
+  @include angular-material-theme($ng-capacitor-light-theme);
+  @include components-theme($ng-capacitor-light-theme);
+}
+
 
 /* You can add global styles to this file, and also import other style files */
 

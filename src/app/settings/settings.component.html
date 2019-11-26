@@ -1,0 +1,14 @@
+<splitted-panel>
+  <ng-container ngProjectAs="list-content">
+    <mat-nav-list>
+      <a mat-list-item routerLink="theme">
+        <mat-icon matListIcon svgIcon="theme"></mat-icon>
+        <h3 matLine>Theme</h3>
+      </a>
+    </mat-nav-list>
+  </ng-container>
+
+  <ng-container ngProjectAs="view-content">
+    <router-outlet></router-outlet>
+  </ng-container>
+</splitted-panel>

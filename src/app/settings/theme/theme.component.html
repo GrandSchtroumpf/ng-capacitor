@@ -1,0 +1,12 @@
+<mat-radio-group [value]="selected$ | async">
+  <mat-action-list>
+    <ng-container *ngFor="let theme of themes | keyvalue">
+      <mat-list-item (click)="select(theme.key)">
+        <mat-radio-button matLine [value]="theme.key" (change)="select($event.value)">
+          {{ theme.key }}
+        </mat-radio-button>
+        <mat-icon>{{ theme.value }}</mat-icon>
+      </mat-list-item>
+    </ng-container>
+  </mat-action-list>
+</mat-radio-group>

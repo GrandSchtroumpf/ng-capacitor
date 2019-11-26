@@ -41,6 +41,10 @@ const routes = [
         data: redirectToSignin,
         loadChildren: () =>
           import('./dashboard/dashboard.module').then(m => m.JobDashboardModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsModule)
       }
     ]
   }

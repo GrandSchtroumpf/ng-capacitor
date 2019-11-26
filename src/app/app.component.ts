@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { UiQuery, DrawerMode } from './ui/+state/ui.query';
+import { SettingsQuery } from './settings/+state';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ export class AppComponent implements AfterViewInit {
   // navOpened$: Observable<boolean>;
   // isDesktop$: Observable<boolean>;
   // mode$: Observable<DrawerMode>;
+  theme$ = this.settings.select('theme');
 
-  // constructor(private ui: UiQuery) {}
+  constructor(private settings: SettingsQuery) {}
 
   ngAfterViewInit() {
     // this.mode$ = this.ui.selectMode('mobile', 'over');
