@@ -1,26 +1,29 @@
-import { Component, AfterViewInit, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { SettingsQuery, Theme } from './settings/+state';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
 
-  // @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
-  // navOpened$: Observable<boolean>;
-  // isDesktop$: Observable<boolean>;
-  // mode$: Observable<DrawerMode>;
   @HostBinding('class')
   theme: Theme;
 
-  constructor(private settings: SettingsQuery) {}
+  constructor(
+    private settings: SettingsQuery,
+    private overlayContainer: OverlayContainer
+  ) {}
 
-  ngAfterViewInit() {
-    this.settings.select('theme').subscribe(theme => this.theme = theme);
-    // this.mode$ = this.ui.selectMode('mobile', 'over');
-    // this.isDesktop$ = this.ui.isDesktop$;
-    // this.navOpened$ = this.ui.select('navOpened');
+  ngOnInit() {
+    this.settings.select('theme').subscribe(theme => {
+      const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+      overlayContainerClasses.remove('dark', 'light', 'default');
+      overlayContainerClasses.add(theme);
+      this.theme = theme;
+    });
   }
+
 }

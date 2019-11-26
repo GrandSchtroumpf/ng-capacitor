@@ -5,16 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Material
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-
-// Component
-import { AuthWidgetModule } from './auth/widget/widget.module';
-
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -33,7 +23,9 @@ import {
   TranslocoConfig
 } from '@ngneat/transloco';
 
-const material = [MatSidenavModule, MatButtonModule, MatTabsModule, MatListModule, MatIconModule];
+import { MatMenuModule } from '@angular/material/menu';
+
+const material = [MatMenuModule];
 
 const translocoConfig = {
   provide: TRANSLOCO_CONFIG,
@@ -48,9 +40,8 @@ const translocoConfig = {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     BrowserAnimationsModule,
-    AuthWidgetModule,
     ...material,
 
     // Angular Firebase
