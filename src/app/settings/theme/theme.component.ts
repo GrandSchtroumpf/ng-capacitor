@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { SettingsStore, SettingsQuery, Theme } from '../+state';
 
 type ThemeIcons = {
@@ -9,6 +9,7 @@ type ThemeIcons = {
   selector: 'app-theme',
   templateUrl: './theme.component.html',
   styleUrls: ['./theme.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThemeComponent {

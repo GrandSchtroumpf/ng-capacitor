@@ -36,7 +36,7 @@ export class UiQuery extends Query<UiState> {
    */
   selectSize(size: Size) {
     return this.breakpointObserver.observe(breakpoints[size]).pipe(
-      deplay(0), // Needed for Expression has changed after it was checked
+      delay(0), // Needed for Expression has changed after it was checked
       map(({ matches }) => matches),
       shareReplay(1)
     );

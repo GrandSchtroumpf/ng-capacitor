@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { redirectToSignin } from './auth/auth.guard';
 
+import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -25,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [QuicklinkModule, RouterModule.forRoot(routes, { preloadingStrategy: QuicklinkStrategy })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
