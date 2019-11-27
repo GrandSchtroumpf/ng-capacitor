@@ -52,7 +52,7 @@ export class VerticalNavContainerComponent implements OnInit {
   }
 
   // tslint:disable-next-line: no-use-before-declare
-  @ContentChild(VerticalNavComponent, { static: false }) nav: VerticalNavComponent;
+  @ContentChild(VerticalNavComponent) nav: VerticalNavComponent;
 
   ngOnInit() {
     this.offset$ = this.isOpen.asObservable().pipe(

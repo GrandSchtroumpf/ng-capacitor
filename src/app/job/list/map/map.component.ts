@@ -17,7 +17,7 @@ interface Marker {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnInit {
-  @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;
+  @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   isMobile$: Observable<boolean>;
 
   markers: Marker[] = [];

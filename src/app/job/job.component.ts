@@ -11,7 +11,7 @@ import { UiQuery, DrawerMode } from '../ui/+state/ui.query';
 })
 export class JobComponent implements AfterViewInit {
 
-  @ViewChild(MatSidenav, { static: false }) sidenav: MatSidenav;
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
   navOpened$: Observable<boolean>;
   isDesktop$: Observable<boolean>;
   mode$: Observable<DrawerMode>;
