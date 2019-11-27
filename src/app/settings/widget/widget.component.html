@@ -1,0 +1,32 @@
+<button mat-icon-button aria-label="settings" [matMenuTriggerFor]="settings">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #settings="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="theme">Themes</button>
+  <button mat-menu-item [matMenuTriggerFor]="language">Languages</button>
+</mat-menu>
+
+<mat-menu #theme="matMenu" xPosition="before">
+  <button mat-menu-item (click)="setTheme('default')">
+    <mat-icon>brightness_4</mat-icon>
+    <span>Default</span>
+  </button>
+  <button mat-menu-item (click)="setTheme('dark')">
+    <mat-icon>brightness_3</mat-icon>
+    <span>Dark</span>
+  </button>
+  <button mat-menu-item (click)="setTheme('light')">
+    <mat-icon>wb_sunny</mat-icon>
+    <span>Light</span>
+  </button>
+</mat-menu>
+
+<mat-menu #language="matMenu" xPosition="before">
+  <button mat-menu-item (click)="setLanguage('fr')">
+    <span>French</span>
+  </button>
+  <button mat-menu-item (click)="setLanguage('en')">
+    <span>English</span>
+  </button>
+</mat-menu>

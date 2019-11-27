@@ -4,15 +4,16 @@ import { RouterModule } from '@angular/router';
 import { LandingComponent } from './landing.component';
 
 // Material
-import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 
+// Widget
+import { SettingsWidgetModule } from '../settings/widget/widget.module';
+
 const material = [
-  MatMenuModule,
   MatToolbarModule,
   MatButtonModule,
   MatRippleModule,
@@ -24,6 +25,7 @@ const material = [
   declarations: [LandingComponent],
   imports: [
     CommonModule,
+    SettingsWidgetModule,
     RouterModule.forChild([
       {
         path: '',

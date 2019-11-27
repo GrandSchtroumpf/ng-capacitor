@@ -2,10 +2,7 @@ mat-radio-button {
   text-transform: capitalize;
 }
 
-.mat-list-base .mat-list-item .mat-line {
-  overflow: initial;
-}
-
+.mat-list-base .mat-list-item .mat-line,
 .mat-list-base .mat-list-item .mat-list-text {
   overflow: initial;
 }

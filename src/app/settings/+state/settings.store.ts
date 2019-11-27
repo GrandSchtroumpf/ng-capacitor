@@ -5,11 +5,13 @@ export type Theme = 'default' | 'dark' | 'light';
 
 export interface SettingsState {
   theme: Theme;
+  lang: string;
 }
 
 export function createInitialState(): SettingsState {
   return {
-    theme: 'default'
+    theme: 'default',
+    lang: 'en'
   };
 }
 

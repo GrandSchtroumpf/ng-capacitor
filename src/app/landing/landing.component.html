@@ -5,13 +5,7 @@
     <a mat-button routerLink="/job/dashboard">Create a Job Offer</a>
   </div>
   <div class="auth-settings">
-    <button mat-icon-button aria-label="settings" [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Themes</button>
-      <button mat-menu-item>Languages</button>
-    </mat-menu>
+    <settings-widget></settings-widget>
 
     <a mat-stroked-button color="primary" routerLink="/signin">
       <mat-icon>account_circle</mat-icon>
