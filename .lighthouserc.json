@@ -1,0 +1,18 @@
+{
+  "ci": {
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "offscreen-images": "off",
+        "uses-webp-images": "off",
+        "color-contrast": "off"
+      }
+    },
+    "collect": {
+      "staticDistDir": "./dist/ng-capacitor"
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
