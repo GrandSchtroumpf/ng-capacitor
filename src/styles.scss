@@ -37,10 +37,16 @@
 }
 
 .default {
-  // Dark Theme
-  @import './theme/dark.scss';
-  @include angular-material-theme($ng-capacitor-dark-theme);
-  @include components-theme($ng-capacitor-dark-theme);
+  @media (prefers-color-scheme: light) {
+    @import './theme/light.scss'; // Should not import twice
+    @include angular-material-theme($ng-capacitor-light-theme);
+    @include components-theme($ng-capacitor-light-theme);
+  }
+  @media (prefers-color-scheme: dark) {
+    @import './theme/dark.scss'; // Should not import twice
+    @include angular-material-theme($ng-capacitor-dark-theme);
+    @include components-theme($ng-capacitor-dark-theme);
+  }
 }
 
 .dark {
