@@ -1,5 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UiQuery, DrawerMode } from '../ui/+state/ui.query';
 
@@ -11,17 +10,14 @@ import { UiQuery, DrawerMode } from '../ui/+state/ui.query';
 })
 export class JobComponent implements AfterViewInit {
 
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
-  navOpened$: Observable<boolean>;
-  isDesktop$: Observable<boolean>;
-  mode$: Observable<DrawerMode>;
+  // TODO: Put them back in after view init
+  mode$ = this.ui.selectMode('mobile', 'over');
+  isDesktop$ = this.ui.isDesktop$;
+  navOpened$ = this.ui.select('navOpened');
 
   constructor(private ui: UiQuery) {}
 
   ngAfterViewInit() {
-    this.mode$ = this.ui.selectMode('mobile', 'over');
-    this.isDesktop$ = this.ui.isDesktop$;
-    this.navOpened$ = this.ui.select('navOpened');
+
   }
 }
-

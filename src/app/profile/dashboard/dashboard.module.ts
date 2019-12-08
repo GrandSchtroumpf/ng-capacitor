@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ListNavModule } from '../../ui/list-nav/list-nav.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 const material = [ MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatExpansionModule ];
 
-import { ProfileComponent } from './profile.component';
+import { DashboardComponent } from './dashboard.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { ExperienceComponent } from './experience/experience.component';
+import { SplittedPanelModule } from '../../ui/splitted-panel/splitted-panel.module';
 
 const routes: Routes = [{
   path: '',
-  component: ProfileComponent,
+  component: DashboardComponent,
   children: [{
     path: 'introduction',
     component: IntroductionComponent,
@@ -32,10 +33,11 @@ const routes: Routes = [{
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
-    ListNavModule,
+    SplittedPanelModule,
     ...material
   ],
-  declarations: [ProfileComponent, IntroductionComponent, ExperienceComponent]
+  declarations: [DashboardComponent, IntroductionComponent, ExperienceComponent]
 })
-export class ProfileModule {}
+export class DashboardModule { }

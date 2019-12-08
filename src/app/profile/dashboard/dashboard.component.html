@@ -1,4 +1,4 @@
-<list-nav>
+<splitted-panel *ngIf="profile$ | async as profile">
   <ng-container ngProjectAs="list-content">
     <mat-toolbar>
       <h3>Profile</h3>
@@ -16,12 +16,16 @@
           Experiences
         </mat-expansion-panel-header>
         <mat-panel-description>
+          <form>
+            <input name="add-experience" [formControl]="newExperience" placeholder="Add a new experience" />
+            <button type="submit" mat-icon-button>
+              <mat-icon>add</mat-icon>
+            </button>
+          </form>
           <mat-nav-list class="experiences">
-            <a mat-list-item routerLink="experience">Ex 1</a>
-            <a mat-list-item routerLink="experience">Ex 1</a>
-            <a mat-list-item routerLink="experience">Ex 1</a>
-            <a mat-list-item routerLink="experience">Ex 1</a>
-            <a mat-list-item routerLink="experience">Ex 1</a>
+            <ng-container *ngFor="let experience of profile.experiences">
+              <a mat-list-item routerLink="experiences">Ex 1</a>
+            </ng-container>
           </mat-nav-list>
         </mat-panel-description>
       </mat-expansion-panel>
@@ -35,4 +39,4 @@
   <ng-container ngProjectAs="view-content">
     <router-outlet></router-outlet>
   </ng-container>
-</list-nav>
+</splitted-panel>

@@ -11,11 +11,6 @@ const routes: Routes = [
     loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
   },
   {
-    path: 'profile',
-    loadChildren: () =>
-      import('./auth/profile/profile.module').then(m => m.ProfileModule)
-  },
-  {
     path: 'signin',
     loadChildren: () =>
       import('./auth/signin/signin.module').then(m => m.SigninModule)
@@ -24,6 +19,11 @@ const routes: Routes = [
     path: 'job',
     loadChildren: () =>
       import('./job/job.module').then(m => m.JobModule)
+  },
+  {
+    path: 'company',
+    loadChildren: () =>
+      import('./company/company.module').then(m => m.CompanyModule)
   }
 ];
 

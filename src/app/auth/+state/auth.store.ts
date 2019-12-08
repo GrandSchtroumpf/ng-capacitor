@@ -6,11 +6,16 @@ interface Favorites {
   job: string[];
 }
 
+interface Experience {
+  title: string;
+}
+
 export type FavoriteKeys = keyof Favorites;
 
 export interface Profile {
   displayName: string;
   photoURL: string;
+  experiences: Experience[];
   favorites: Favorites;
 }
 

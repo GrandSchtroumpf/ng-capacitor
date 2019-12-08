@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+mat-expansion-panel.experiences-panel {
+  background: none;
+  box-shadow: none;
+
+  mat-expansion-panel-header {
+    padding: 0 16px; // Should match mat-list-item padding
+  }
+
+  mat-panel-description {
+    flex-direction: column;
+    mat-nav-list {
+      width: 100%;
+    }
+    footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    form {
+      width: 100%;
+      display: flex;
+    }
+    input {
+      flex: 1;
+      background: none;
+      border: none;
+    }
+  }
+}
+
+
