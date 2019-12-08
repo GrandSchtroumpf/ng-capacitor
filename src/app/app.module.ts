@@ -23,7 +23,6 @@ import {
   TranslocoConfig
 } from '@ngneat/transloco';
 
-
 const material = [];
 
 const translocoConfig = {

@@ -8,13 +8,6 @@ mat-sidenav-container {
 
   mat-sidenav {
     width: 300px;
-
-    mat-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
     a mat-icon {
       margin-right: 20px;
     }

@@ -1,24 +1,31 @@
 <ng-container *ngIf="profile$ | async as profile; else toLogin">
-  <mat-toolbar>
-    <a routerLink="/" class="mat-headline">Job Hunting</a>
-    <button (click)="signout()" mat-icon-button>
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
-  </mat-toolbar>
-  <section class="connected">
-    <a matRipple class="img-link" routerLink="profile">
-      <img [src]="profile.photoURL" alt="Profile image" />
-    </a>
-    <a class="click-to-action" mat-flat-button color="primary">Wishlist</a>
-  </section>
+  <img class="avatar" [src]="profile.photoURL" matRipple alt="Profile image" aria-label="settings" [widgetTarget]="authWidget"/>
+
+  <mat-widget #authWidget>
+    <mat-card class="example-card mat-elevation-z2">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ profile.displayName }}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-footer>
+        <button mat-button color="warn" (click)="signout()">Signout</button>
+      </mat-card-footer>
+    </mat-card>
+  </mat-widget>
 </ng-container>
 
 <ng-template #toLogin>
-  <mat-toolbar class="no-connected">
-    <a routerLink="/" class="mat-heading">Job Hunting</a>
-    <a routerLink="/signin" mat-icon-button>
-      <mat-icon>account_circle</mat-icon>
-    </a>
-  </mat-toolbar>
+  <a mat-stroked-button color="primary" routerLink="signin">
+    <mat-icon>account_circle</mat-icon>
+    <span class="mat-title">Sign In</span>
+  </a>
 </ng-template>
-<mat-divider></mat-divider>

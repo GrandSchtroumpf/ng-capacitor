@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { redirectToSignin } from './auth/auth.guard';
+import { canActivate, redirectUnauthorizedTo, AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 
@@ -8,13 +9,14 @@ import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
+    redirectTo: 'landing',
+    pathMatch: 'full'
   },
-  {
-    path: 'signin',
-    loadChildren: () =>
-      import('./auth/signin/signin.module').then(m => m.SigninModule)
-  },
+  // {
+  //   path: 'signin',
+  //   loadChildren: () =>
+  //     import('./auth/signin/signin.module').then(m => m.SigninModule)
+  // },
   {
     path: 'job',
     loadChildren: () =>
@@ -22,8 +24,12 @@ const routes: Routes = [
   },
   {
     path: 'company',
-    loadChildren: () =>
-      import('./company/company.module').then(m => m.CompanyModule)
+    loadChildren: () => import('./layout/company/company.module').then(m => m.CompanyModule),
+    ...canActivate(() => redirectUnauthorizedTo(['landing/signin']))
+  },
+  {
+    path: 'landing',
+    loadChildren: () => import('./layout/landing/landing.module').then(m => m.LandingModule)
   }
 ];
 

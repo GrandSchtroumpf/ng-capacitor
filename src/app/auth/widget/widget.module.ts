@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 import { WidgetComponent } from './widget.component';
 
@@ -17,14 +18,18 @@ const material = [
   MatIconModule,
   MatButtonModule,
   MatRippleModule,
-  MatDividerModule
+  MatDividerModule,
+  MatCardModule
 ];
+
+import { MatWidgetModule } from '../../ui/widget/widget.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    MatWidgetModule,
     ...material
   ],
   declarations: [WidgetComponent],

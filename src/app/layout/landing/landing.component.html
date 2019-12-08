@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <div class="routings">
+    <a class="mat-headline" routerLink="/landing">Job Hunting</a>
+    <a mat-button routerLink="/job/list/map">Find a Job</a>
+    <a mat-button routerLink="/company">Create a Job Offer</a>
+  </div>
+  <div class="auth-settings">
+    <settings-widget></settings-widget>
+    <auth-widget></auth-widget>
+    <!-- <a mat-stroked-button color="primary" routerLink="signin">
+      <mat-icon>account_circle</mat-icon>
+      <span class="mat-title">Sign In</span>
+    </a> -->
+  </div>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<mat-divider></mat-divider>
+<footer>
+  <a class="mat-headline" routerLink="/landing">Job Hunting</a>
+  <ul>
+    <li><h3 class="mat-subheading-2">Company</h3></li>
+    <li><a mat-button >Home</a></li>
+    <li><a mat-button >Pricing</a></li>
+  </ul>
+  <ul>
+    <li><h3 class="mat-subheading-2">Learn More</h3></li>
+    <li><a mat-button >About Us</a></li>
+  </ul>
+  <ul>
+    <li><h3 class="mat-subheading-2">Follow Us</h3></li>
+    <li>
+      <ng-container *ngFor="let social of socials">
+        <mat-icon [svgIcon]="social"></mat-icon>
+      </ng-container>
+    </li>
+  </ul>
+</footer>
+
