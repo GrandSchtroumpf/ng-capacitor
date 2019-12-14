@@ -1,5 +1,5 @@
 <mat-sidenav-container class="mat-typography">
-  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="navOpened$ | async">
+  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="navOpened$ | async" (openedChange)="setOpen($event)">
     <mat-toolbar>
       <a class="mat-title" routerLink="/landing">Job Hunting</a>
       <auth-widget></auth-widget>

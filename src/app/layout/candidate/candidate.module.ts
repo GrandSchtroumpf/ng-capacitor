@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CompanyRoutingModule } from './company-routing.module';
-import { CompanyComponent } from './company.component';
+import { CandidateRoutingModule } from './candidate-routing.module';
+import { CandidateComponent } from './candidate.component';
 
 // Widget
 import { AuthWidgetModule } from '../../auth/widget/widget.module';
@@ -26,12 +26,12 @@ const material = [
 ];
 
 @NgModule({
-  declarations: [CompanyComponent],
+  declarations: [CandidateComponent],
   imports: [
     CommonModule,
-    CompanyRoutingModule,
+    CandidateRoutingModule,
     AuthWidgetModule,
     ...material
   ]
 })
-export class CompanyModule { }
+export class CandidateModule { }

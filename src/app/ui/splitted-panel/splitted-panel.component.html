@@ -1,11 +1,12 @@
-<section class="list" [style.paddingRight]="size + 'px'">
+<section class="list" [style.paddingRight]="size$ | async">
   <ng-content select="list-content"></ng-content>
 </section>
 
 <div
+  *ngIf="!(isMobile$ | async)"
   id="resize"
   cdkDrag
-  [style.right]="position + 'px'"
+  [style.right]="initialPosition + 'px'"
   [ngClass]="{ dragging: dragging }"
   (cdkDragStarted)="dragging = true"
   (cdkDragEnded)="exit()"
@@ -17,6 +18,6 @@
   </button>
 </div>
 
-<section class="view" [style.width]="size + 'px'">
+<section class="view" [style.width]="size$ | async">
   <ng-content select="view-content"></ng-content>
 </section>

@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CompanyComponent } from './company.component';
+import { CandidateComponent } from './candidate.component';
 
 const routes: Routes = [{
   path: '',
-  component: CompanyComponent,
+  component: CandidateComponent,
   children: [{
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'list',
     pathMatch: 'full'
   }, {
-    path: 'dashboard',
-    loadChildren: () => import('../../job/dashboard/dashboard.module').then(m => m.JobDashboardModule)
-  }, {
-    path: 'company',
-    loadChildren: () => import('../../company/dashboard/dashboard.module').then(m => m.DashboardModule)
+    path: 'list',
+    loadChildren: () => import('../../job/list/list.module').then(m => m.JobListModule)
   }, {
     path: 'settings',
     loadChildren: () => import('../../settings/settings.module').then(m => m.SettingsModule)
@@ -26,4 +23,4 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CompanyRoutingModule { }
+export class CandidateRoutingModule { }

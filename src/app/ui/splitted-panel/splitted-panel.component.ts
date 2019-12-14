@@ -1,8 +1,16 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CdkDragMove } from '@angular/cdk/drag-drop';
-import { DrawerMode, UiQuery } from '../+state/ui.query';
-import { Observable } from 'rxjs';
+import { UiQuery } from '../+state/ui.query';
+import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+function getSize([ size, isMobile, isOpen ]) {
+  if (isOpen) {
+    return isMobile ? '100%' : `${size}px`;
+  } else {
+    return isMobile ? '0' : `${size}px`;
+  }
+}
 
 @Component({
   selector: 'splitted-panel',
@@ -10,33 +18,40 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./splitted-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SplittedPanelComponent implements AfterViewInit {
-  @Input() position = 800;
-  size = this.position;
-  next = 0;
+export class SplittedPanelComponent {
+  initialPosition = 800;
+  private isOpen = new BehaviorSubject(true);
+  private size = new BehaviorSubject(this.initialPosition);
+  private next = 0;
+
+  @Input() set position(size: number) {
+    this.size.next(size);
+  }
+  @Input() set opened(isOpen: boolean) {
+    this.isOpen.next(isOpen);
+  }
 
   showFilter = false;
-  isOpened$: Observable<boolean>;
-  mode$: Observable<DrawerMode>;
-  sidenavWidth$: Observable<{ width: string }>;
+  isMobile$ = this.ui.selectSize('mobile');
   dragging: boolean;
 
+  // If mobile don't split the screen
+  size$ = combineLatest([
+    this.size.asObservable(),
+    this.isMobile$,
+    this.isOpen.asObservable()
+  ]).pipe(
+    map(getSize)
+  );
+
   constructor(private ui: UiQuery) { }
-
-  ngAfterViewInit() {
-    this.mode$ = this.ui.selectMode('mobile', 'over');
-    this.sidenavWidth$ = this.ui.selectSize('mobile').pipe(
-      map(match => ({ width: match ? '100%' : '60%'}))
-    );
-
-  }
 
   changeSize(move: CdkDragMove) {
     this.next = move.distance.x;
   }
 
   exit() {
-    this.size -= this.next;
+    this.size.next(this.size.getValue() - this.next);
     this.next = 0;
     this.dragging = false;
   }

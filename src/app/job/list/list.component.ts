@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { JobQuery, JobService } from '../+state';
 import { AuthQuery } from 'src/app/auth/+state/auth.query';
 import { AuthService } from 'src/app/auth/+state/auth.service';
 import { map } from 'rxjs/operators';
+import { fade } from '../../ui/animations';
 
 @Component({
   selector: 'job-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
+  animations: [fade()],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JobListComponent implements OnInit {
   showFilter = false;

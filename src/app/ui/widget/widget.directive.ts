@@ -19,39 +19,34 @@ export class WidgetDirective implements OnDestroy {
 
   @HostListener('click')
   open() {
-    // Set position
-    const positionStrategy = this.overlay
-      .position()
-      .flexibleConnectedTo(this.el)
-      .withPositions([
-        {
+    if (!this.overlayRef) {
+      // Set position
+      const positionStrategy = this.overlay
+        .position()
+        .flexibleConnectedTo(this.el)
+        .withPositions([{
           originX: 'start',
           originY: 'bottom',
           overlayX: 'start',
           overlayY: 'top'
-        },
-        {
-          originX: 'start',
-          originY: 'top',
-          overlayX: 'start',
-          overlayY: 'bottom'
-        }
-      ]);
+        }]);
 
-    const overlayRef = this.overlayRef || this.overlay.create({
-      backdropClass: 'cdk-overlay-transparent-backdrop',
-      hasBackdrop: true,
-      positionStrategy
-    });
+      // Get or Create overlay reference
+      this.overlayRef = this.overlay.create({
+        backdropClass: 'cdk-overlay-transparent-backdrop',
+        hasBackdrop: true,
+        positionStrategy
+      });
 
-    // Returns an OverlayRef (which is a PortalHost)
-    overlayRef.backdropClick().subscribe(() => overlayRef.detach());
+      // Returns an OverlayRef (which is a PortalHost)
+      this.overlayRef.backdropClick().subscribe(() => this.overlayRef.detach());
+    }
 
-    // Create ComponentPortal that can be attached to a PortalHost
+    // Create TemplatePortal based on the input from element
     const widget = new TemplatePortal(this.widgetTarget.templateref, this.viewContainerRef);
 
-    // Attach ComponentPortal to PortalHost
-    overlayRef.attach(widget);
+    // Attach Tempalte to PortalHost
+    this.overlayRef.attach(widget);
   }
 
   constructor(
@@ -60,7 +55,8 @@ export class WidgetDirective implements OnDestroy {
     private overlay: Overlay
   ) {}
 
-  ngOnDestroy(): void {
+  // Destroy the reference from the DOM if it exists and clean up overlayRef
+  ngOnDestroy() {
     if (this.overlayRef) {
       this.overlayRef.dispose();
       delete this.overlayRef;

@@ -23,6 +23,10 @@ const routes: Routes = [
       import('./job/job.module').then(m => m.JobModule)
   },
   {
+    path: 'candidate',
+    loadChildren: () => import('./layout/candidate/candidate.module').then(m => m.CandidateModule),
+  },
+  {
     path: 'company',
     loadChildren: () => import('./layout/company/company.module').then(m => m.CompanyModule),
     ...canActivate(() => redirectUnauthorizedTo(['landing/signin']))

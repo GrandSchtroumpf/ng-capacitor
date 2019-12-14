@@ -1,0 +1,24 @@
+<mat-sidenav-container class="mat-typography">
+  <mat-sidenav [mode]="mode$ | async" position="start" [opened]="navOpened$ | async">
+    <mat-toolbar>
+      <a class="mat-title" routerLink="/landing">Job Hunting</a>
+      <auth-widget></auth-widget>
+    </mat-toolbar>
+    <mat-nav-list *ngIf="isDesktop$ | async">
+      <h3 matSubheader>Jobs</h3>
+      <a mat-list-item routerLink="list" routerLinkActive="active">
+        <mat-icon>list</mat-icon>
+        <span>Find a Job</span>
+      </a>
+      <h3 matSubheader>Settings</h3>
+      <a mat-list-item routerLink="settings" routerLinkActive="active">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
