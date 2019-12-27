@@ -9,14 +9,49 @@ mat-sidenav-container {
   mat-sidenav {
     width: 300px;
 
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     mat-toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      mat-icon {
+        margin-right: 5px;
+      }
     }
 
-    a mat-icon {
-      margin-right: 20px;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      mat-icon, button {
+        margin: 20px;
+      }
+    }
+
+    mat-nav-list {
+      width: 100%;
+      flex: 1;
+      a mat-icon {
+        margin-right: 20px;
+      }
+    }
+
+
+    #settings-link {
+      height: 64px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      mat-icon {
+        margin-right: 20px;
+      }
     }
   }
 

@@ -12,11 +12,6 @@ const routes: Routes = [
     redirectTo: 'landing',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'signin',
-  //   loadChildren: () =>
-  //     import('./auth/signin/signin.module').then(m => m.SigninModule)
-  // },
   {
     path: 'job',
     loadChildren: () =>
@@ -28,8 +23,15 @@ const routes: Routes = [
   },
   {
     path: 'company',
-    loadChildren: () => import('./layout/company/company.module').then(m => m.CompanyModule),
-    ...canActivate(() => redirectUnauthorizedTo(['landing/signin']))
+    ...canActivate(() => redirectUnauthorizedTo(['landing/signin'])),
+    children: [{
+      path: '',
+      loadChildren: () => import('./layout/company/company.module').then(m => m.CompanyModule),
+      // Todo : add verification on user
+    }, {
+      path: 'create',
+      loadChildren: () => import('./company/create/create.module').then(m => m.CreateModule),
+    }]
   },
   {
     path: 'landing',

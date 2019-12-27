@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <a class="mat-headline" routerLink="/">Job Hunting</a>
+  <button mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-vertical-stepper (selectionChange)="select($event)">
+      <mat-step [stepControl]="form.get('create')" label="Create your Organization"></mat-step>
+      <mat-step [stepControl]="form.get('role')" label="Indicate your Role"></mat-step>
+      <mat-step [stepControl]="form.get('members')" label="Add a member"></mat-step>
+    </mat-vertical-stepper>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
