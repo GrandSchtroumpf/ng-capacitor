@@ -62,7 +62,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
-    "electron": "^7.0.0",
+    "electron": "^7.2.4",
     "electron-is-dev": "^1.1.0",
     "electron-windows-store": "^2.1.0",
     "firebase-tools": "^6.10.0",
